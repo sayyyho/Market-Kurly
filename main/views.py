@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from .models import Product, ProductComment
+from .models import Product, ProductComment, Category
 
 # Create your views here.
 # 메인페이지와 메인페이지의 products 정보들을 불러오는 함수
 def mainpage(request):
     products = Product.objects.all()
-    return render(request, 'main/mainpage.html', {'products': products})
+    categories = Category.objects.all()
+    return render(request, 'main/mainpage.html', {'products': products, 'categories': categories})
 
 # 상품의 상세페이지를 불러오는 함수
 def product_detail(request, product_id):

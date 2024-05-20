@@ -1,32 +1,93 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
-<!-- css 파일 -->
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'css/main/main_page.css'%}"
-/>
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <!-- css 파일 -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main/main_page.css'%}"/>
 
-<!-- 코드 작성시, 아래 부분(script 태그 이전)은 전체 삭제하고 작성하세요 -->
+  <div class="tag-box">
+    <div class="tag-list">
+      <a class="tag-item tag-selection">인기신상랭킹</a>
+      <a class="tag-item">입점특가</a>
+      <a class="tag-item">간편한끼</a>
+      <a class="tag-item">요즘간식</a>
+      <a class="tag-item">주방·리빙</a>
+      <a class="tag-item">뷰티</a>
+      <a class="tag-item">패션·잡화</a>
+    </div>
+  </div>
+  <div class="contents-wrapper">
+    <div class="filter-box">
+      <div class="filter-head">
+        <p>필터</p>
+        <div>
+          <img src="{% static 'assets/icons/restart.svg' %}" alt="reset">
+          <p>초기화</p>
+        </div>
+      </div>
+      <div class="category-box">
+        <div class="category-head">
+          <p>카테고리</p>
+          <img src="{% static "assets/icons/up.svg" %}" alt="up">
+        </div>
+        <div class="category-list"> 
+          <div class="category-item">
+            <input type="checkbox" id="1">
+            <label for="check-1" class="item-name">스킨케어·메이크업</label>
+            <span class="item-count">68</span>
+          </div>
+          <div class="category-item">
+            <input type="checkbox" id="2">
+            <label for="check-2" class="item-name">럭셔리뷰티</label>
+            <span class="item-count">24</span>
+          </div>
+          <div class="category-item" id="3">
+            <input type="checkbox">
+            <label for="check-3" class="item-name">간식·과자·떡</label>
+            <span class="item-count">28</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contents-box">
+      <div class="sorting-bar">
+        <div class="sorting-count">총 508건</div>
+        <div class="sorting-list">
+          <span class="sorting-item sorting-select">추천순</span>
+          <span>|</span>
+          <span class="sorting-item">신상품순</span>
+          <span>|</span>
+          <span class="sorting-item">판매량순</span>
+          <span>|</span>
+          <span class="sorting-item">혜택순</span>
+          <span>|</span>
+          <span class="sorting-item">낮은 가격순</span>
+          <span>|</span>
+          <span class="sorting-item">높은 가격순</span>
+        </div>
+      </div>
+      <div class="category-selection-view">
+        테스트
+      </div>
+    </div>
+  </div>
+  <!-- js 파일 -->
+  {% comment %} <div style="display: flex">
+    {% for product in products %}
+      <a href="product/{{product.id}}">
+        <img src="{{product.image_url}}" style="width: 100px"/>
+        <p>{{product}}</p>
+        <p>{{product.description}}</p>
+        <p>{{product.origin_price}}원</p>
+        <p>{{product.discount_rate}}%</p>
+        <p>{{product.discount_price}}원</p>
+      </a>
+    {% endfor %}
+  </div> {% endcomment %}
+  <script src="{% static 'js/main/main_page.js'%}"></script>
+{% endblock %}
 
 <!----------------tip!---------------->
 <!-- 상품 데이터베이스는 프로젝트에 넣어뒀어요 -->
 <!-- 아래와 같은 형식으로 for문을 사용하여 작성하세요 -->
 
 <!-- 데이터 사용 예시 -->
-<div style="display: flex">
-  {% for product in products %}
-  <a href="product/{{product.id}}">
-    <img src="{{product.image_url}}" style="width: 100px" />
-    <p>{{product}}</p>
-    <p>{{product.description}}</p>
-    <p>{{product.origin_price}}원</p>
-    <p>{{product.discount_rate}}%</p>
-    <p>{{product.discount_price}}원</p>
-  </a>
-  {% endfor %}
-</div>
-<!-- 데이터 사용 예시 -->
-
-<!-- js 파일 -->
-<script src="{% static 'js/main/main_page.js'%}"></script>
-{% endblock %}
