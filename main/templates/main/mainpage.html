@@ -84,14 +84,14 @@
       <div class="product-frame">
         {% for product in products %}
         <div class="product-card">
-          <img src="{{product.image_url}}"/>
+          <a href="product/{{product.id}}"><img src="{{product.image_url}}"/></a>
           <div class="cart">
-            <img src="{% static "assets/icons/cart.svg" %}" alt="카트">
+            <img src="{% static "assets/icons/cart.svg" %}" alt="카트"/>
             <p>담기</p>
           </div>
           <div class="product-info">
             <p>샛별배송</p>
-            <p>{{product}}</p>
+            <p><a href="product/{{product.id}}">{{product}}</a></p>
             <p>{{product.description}}</p>
             <div class="price-box">
               <p id="origin-price">{{product.origin_price}}원</p>
