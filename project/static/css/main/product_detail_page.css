@@ -257,3 +257,8 @@ img {
   font-weight: 500;
   line-height: 24px /* 150% */;
 }
+
+.increment,
+.decrement {
+  cursor: pointer;
+}
