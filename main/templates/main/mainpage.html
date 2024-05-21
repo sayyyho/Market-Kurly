@@ -20,7 +20,7 @@
       <div class="filter-head">
         <p>필터</p>
         <div>
-          <img src="{% static 'assets/icons/restart.svg' %}" alt="reset">
+          <img src="{% static 'assets/icons/restart.svg' %}" alt="reset" id="clear">
           <p>초기화</p>
         </div>
       </div>
@@ -31,19 +31,19 @@
         </div>
         <div class="category-list"> 
           <div class="category-item">
-            <input type="checkbox" id="1">
+            <input type="checkbox" id="check-1">
             <label for="check-1" class="item-name">스킨케어·메이크업</label>
-            <span class="item-count">68</span>
+            <span class="item-count" id="count-1">68</span>
           </div>
           <div class="category-item">
-            <input type="checkbox" id="2">
+            <input type="checkbox" id="check-2">
             <label for="check-2" class="item-name">럭셔리뷰티</label>
-            <span class="item-count">24</span>
+            <span class="item-count" id="count-2">24</span>
           </div>
-          <div class="category-item" id="3">
-            <input type="checkbox">
+          <div class="category-item">
+            <input type="checkbox" id="check-3">
             <label for="check-3" class="item-name">간식·과자·떡</label>
-            <span class="item-count">28</span>
+            <span class="item-count" id="count-3">28</span>
           </div>
         </div>
       </div>
@@ -65,11 +65,51 @@
           <span class="sorting-item">높은 가격순</span>
         </div>
       </div>
-      <div class="category-selection-view">
-        테스트
+      <div class="category-selection-view hidden-class">
+        <div class="category-selection-item hidden-class" id="selection-1">
+          <p>스킨케어·메이크업</p>
+          <img src="{% static "assets/icons/close.svg" %}" alt="삭제">
+        </div>
+        <div class="category-selection-item hidden-class" id="selection-2">
+          <p>럭셔리뷰티</p>
+          <img src="{% static "assets/icons/close.svg" %}" alt="삭제">
+        </div>
+        <div class="category-selection-item hidden-class" id="selection-3">
+          <p>간식·과자·떡</p>
+          <img src="{% static "assets/icons/close.svg" %}" alt="삭제">
+        </div>
       </div>
+      
+      
+      <div class="product-frame">
+        {% for product in products %}
+        <div class="product-card">
+          <img src="{{product.image_url}}"/>
+          <div class="cart">
+            <img src="{% static "assets/icons/cart.svg" %}" alt="카트">
+            <p>담기</p>
+          </div>
+          <div class="product-info">
+            <p>샛별배송</p>
+            <p>{{product}}</p>
+            <p>{{product.description}}</p>
+            <div class="price-box">
+              <p id="origin-price">{{product.origin_price}}원</p>
+              <div class="discount-box">
+                <p id="discount-rate">{{product.discount_rate}}%</p>
+                <p>{{product.discount_price}}원</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      {% endfor %}
+      </div>
+
     </div>
   </div>
+  {% comment %}   <a href="product/{{product.id}}">
+        </a> {% endcomment %}
   <!-- js 파일 -->
   {% comment %} <div style="display: flex">
     {% for product in products %}
