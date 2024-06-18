@@ -114,3 +114,21 @@ li {
   cursor: pointer;
   color: white;
 }
+
+.check-text {
+  color: var(--point-red, #fa622f);
+  text-align: right;
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  /* Caption */
+  font-family: Pretendard;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1rem; /* 133.333% */
+}
+
+.hidden-text {
+  display: none;
+}

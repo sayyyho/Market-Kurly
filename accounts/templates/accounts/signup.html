@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/accounts/signup.css'%}"/>
 
   <div class="sign-up-view">
-    <form class="sign-up-container" action="{% url 'accounts:signup' %}" method="POST">
+    <form id="sign-up" class="sign-up-container" action="{% url 'accounts:signup' %}" method="POST">
       {% csrf_token %}
       <p id="sign-up-title">회원가입</p>
       <div class="line"></div>
@@ -29,12 +29,14 @@
         <div class="password-view">
           <label for="pw">비밀번호 확인</label>
           <input type="password" id="pw-check" placeholder="비밀번호를 한번 더 입력해주세요." name="password2">
-
         </div>
+        <p class="check-text hidden-text">비밀번호가 일치하지 않습니다.</p>
       </div>
       <div class="line"></div>
-      <button id="submit-btn" class="disabled-status" disabled="disabled">가입하기</button>
+      <button id="submit-btn" class="disabled-status" disabled="disabled" type="submit">가입하기</button>
+
     </form>
+
   </div>
   <script src="{% static 'js/accounts/signup.js'%}"></script>
 {% endblock %}

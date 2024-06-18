@@ -1,1 +1,93 @@
 /* login page - CSS */
+.login-container {
+  display: flex;
+  padding-top: 3.125rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  align-self: stretch;
+}
+
+.login-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.login-title {
+  color: #000;
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2rem; /* 114.286% */
+  letter-spacing: -0.0625rem;
+}
+
+.input-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  align-self: stretch;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 21.25rem;
+  display: flex;
+  height: 2.875rem;
+  padding: 0rem 0.0625rem 0rem 0.6875rem;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 0.25rem;
+  border: 1px solid var(--stroke-stroke-1, #ccc);
+}
+
+.find-view {
+  display: flex;
+  width: 21.25rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.button-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+button {
+  display: flex;
+  width: 21.25rem;
+  padding: 1rem 0rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.disable-btn {
+  background: var(--stroke-stroke-2, #e2e2e2);
+  color: #999;
+}
+.sign-btn {
+  border: 1px solid var(--point-main, #5e0080);
+  color: #5e0080;
+  cursor: pointer;
+}
+
+.active-btn {
+  background: var(--point-main, #5e0080);
+  color: white;
+  cursor: pointer;
+}

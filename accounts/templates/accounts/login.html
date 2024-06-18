@@ -1,6 +1,28 @@
 <!-- 임시 로그인 페이지 -->
-{% extends 'base.html' %} {% block content %}
-<div class="container">
-  <h2>로그인</h2>
-</div>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/accounts/login.css'%}"/>
+
+  <form class="login-container" id="login" method="POST" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+    <div class="login-view">
+      <p class="login-title">로그인</p>
+      <div class="input-view">
+        <input type="text" name="username" id="username" placeholder="아이디를 입력해주세요."/>
+        <input type="password" name="password" id="password" placeholder="비밀번호를 입력해주세요."/>
+      </div>
+      <div class="find-view">
+        <p id="find-id">아이디 찾기</p>
+        <p>|</p>
+        <p id="find-pw">비밀번호 찾기</p>
+      </div>
+    </div>
+    <div class="button-view">
+      <button class="disable-btn" disable="disable">로그인</button>
+      <button class="sign-btn">회원가입</button>
+    </div>
+  </form>
+
+  <script src="{% static 'js/accounts/login.js'%}"></script>
 {% endblock %}
