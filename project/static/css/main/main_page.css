@@ -387,3 +387,7 @@ input[type="checkbox"] {
 #discount-rate {
   color: #fa622f;
 }
+
+.reset-view {
+  cursor: pointer;
+}

@@ -6,7 +6,7 @@ const categoryItem = document.querySelectorAll(
 
 const selectedCategory = document.querySelectorAll(".category-selection-item");
 const selectionView = document.querySelector(".category-selection-view");
-const clearBtn = document.querySelector("#clear");
+const resetContainer = document.querySelector(".reset-view");
 const sortingCount = document.querySelector(".sorting-count");
 let countHidden = 0;
 let countproduct = 0;
@@ -61,7 +61,7 @@ const selectedItem = categoryItem.forEach((checkbox, index) => {
   });
 });
 
-clearBtn.addEventListener("click", () => {
+resetContainer.addEventListener("click", () => {
   categoryItem.forEach((item, index) => {
     item.checked = false;
     const bindingID = `#selection-${index + 1}`;

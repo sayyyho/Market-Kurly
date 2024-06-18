@@ -1,36 +1,37 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'css/main/product_detail_page.css'%}"
-/>
+{% extends 'base.html' %}
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main/product_detail_page.css'%}"/>
 
-<!-- 코드 작성시, 아래 부분(endblock 이전)은 전체 삭제하고 작성하세요 -->
+  <!-- 코드 작성시, 아래 부분(endblock 이전)은 전체 삭제하고 작성하세요 -->
 
-<!----------------tip!---------------->
-<!-- 상품 데이터베이스는 프로젝트에 넣어뒀어요 -->
-<!-- 아래와 같은 형식으로 사용하세요 -->
+  <!----------------tip!---------------->
+  <!-- 상품 데이터베이스는 프로젝트에 넣어뒀어요 -->
+  <!-- 아래와 같은 형식으로 사용하세요 -->
 
-<div class="frame">
-  <div class="info">
-    <img src="{{product.image_url}}" alt="product">
-    <div class="detail-frame">
-      <div class="selection">
-        <p>샛별배송</p>
-        <div class="product-name"><p>{{product.name}}</p></div>
-        <div class="product-price">
-          <p id="discount">{{product.discount_rate}}%</p>
-          <p class="default-price">{{product.discount_price}} 원</p>
-        </div>
-        <div class="line"></div>
-        <div class="notice-box">
-          <p>안내사항</p>
-          <p>{{product.notice}}</p>
-        </div>
-        <div class="line"></div>
+  <div class="frame">
+    <div class="info">
+      <img src="{{product.image_url}}" alt="product">
+      <div class="detail-frame">
+        <div class="selection">
+          <p>샛별배송</p>
+          <div class="product-name">
+            <p>{{product.name}}</p>
+          </div>
+          <div class="product-price">
+            <p id="discount">{{product.discount_rate}}%</p>
+            <p class="default-price">{{product.discount_price}}
+              원</p>
+          </div>
+          <div class="line"></div>
+          <div class="notice-box">
+            <p>안내사항</p>
+            <p>{{product.notice}}</p>
+          </div>
+          <div class="line"></div>
 
-        <div class="count-zone">
-          <p>상품선택</p>
+          <div class="count-zone">
+            <p>상품선택</p>
             <div class="count-box">
               <p>{{product.name}}</p>
               <div>
@@ -38,33 +39,69 @@
                 <p class="total-count">1</p>
                 <p class="increment">+</p>
               </div>
+            </div>
+          </div>
+          <div class="line"></div>
+        </div>
+        <div class="confirm">
+          <div class="total-zone">
+            <div>
+              <p>총 상품 금액:</p>
+              <p class="final-price">{{product.discount_price}}
+                원</p>
+            </div>
+          </div>
+          <div class="login">
+            <p>로그인</p>
           </div>
         </div>
-        <div class="line"></div>
-      </div>
-      <div class="confirm">
-        <div class="total-zone">
-          <div>
-            <p>총 상품 금액:</p>
-            <p class="final-price">{{product.discount_price}} 원</p>
-          </div>
-        </div>
-      <div class="login">
-        <p>로그인</p>
-      </div>
       </div>
     </div>
   </div>
-</div>
 
+  <div class="form-div">
+    <form id="review-from" method="POST" action="create_comment/">
+      {% csrf_token %}
+      <select name="star" id="star">
+        <option value="none">선택</option>
+        <option value="1" name="star">1</option>
+        <option value="2" name="star">2</option>
+        <option value="3" name="star">3</option>
+        <option value="4" name="star">4</option>
+        <option value="5" name="star">5</option>
+      </select>
+      <div>
+        <textarea placeholder="상품 후기를 남겨주세요" name="content" id="product-review"></textarea>
+        <button class="submit-btn" type="submit" disabled="disabled">등록</button>
+      </div>
+    </form>
+  </div>
 
-{% comment %} <!-- 데이터 사용 예시 -->
-<img src="{{product.image_url}}" style="width: 100px" />
-<p>{{product.name}}</p>
-<p>{{product.discount_rate}}%</p>
-<p>{{product.discount_price}} 원</p>
-<p>{{product.notice}}</p>
-<!-- 데이터 사용 예시 --> {% endcomment %}
+  <div class="screen">
+    <div style="
+      width: 1050px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 0px;
+    ">
+      {% for comment in comments %}
+        <div style="
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 8px;
+        border-bottom: solid 1px #d9d9d9;
+      ">
+          <div style="display: flex; justify-content: space-between">
+            <p>평점:{{comment.star}}</p>
+            <a href="{% url 'main:delete_comment' comment.id %}">삭제</a>
+          </div>
+          <p class="B1">{{comment.content}}</p>
+        </div>
+        {% endfor%}
+      </div>
+    </div>
 
-<script src="{% static 'js/main/product_detail_page.js'%}"></script>
-{% endblock %}
+    <script src="{% static 'js/main/product_detail_page.js'%}"></script>
+  {% endblock %}

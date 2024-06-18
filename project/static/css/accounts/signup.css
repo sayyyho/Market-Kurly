@@ -1,1 +1,116 @@
-/* signup page - CSS */
+.sign-up-view {
+  display: flex;
+  padding-top: 3.125rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  align-self: stretch;
+}
+
+.sign-up-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+#sign-up-title {
+  color: #000;
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2rem; /* 114.286% */
+  letter-spacing: -0.0625rem;
+}
+
+.line {
+  width: 40rem;
+  height: 0.0625rem;
+  background-color: black;
+}
+
+.line:nth-last-child(2) {
+  background-color: #e2e2e2;
+}
+
+#submit-btn {
+  display: flex;
+  width: 15rem;
+  padding: 1rem 0rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.input-view {
+  display: flex;
+  padding: 0.625rem 1.25rem;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  width: 15%;
+  height: 2.875rem;
+  flex-direction: column;
+  justify-content: center;
+  color: #000;
+
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25rem; /* 142.857% */
+  letter-spacing: -0.0625rem;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: flex;
+  height: 2.875rem;
+  width: 80%;
+  padding: 0rem 0.0625rem 0rem 0.6875rem;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+  border-radius: 0.25rem;
+  border: 1px solid var(--stroke-stroke-1, #ccc);
+}
+
+.username-view,
+.password-view {
+  display: flex;
+  width: 100%;
+  padding: 0.625rem 1.25rem;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.introduction {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  color: #999999;
+  list-style: disc;
+}
+
+.disabled-status {
+  background: #e2e2e2;
+}
+
+.abled-status {
+  background: #5e0080;
+  cursor: pointer;
+  color: white;
+}

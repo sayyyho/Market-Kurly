@@ -22,3 +22,19 @@ decrement.addEventListener("click", () => {
     totalPrice.textContent = `${countNum * price} 원`;
   }
 });
+
+const submitBtn = document.querySelector(".submit-btn");
+const submitText = document.querySelector("#product-review");
+submitText.addEventListener("input", (e) => {
+  if (
+    e.target.value === undefined ||
+    e.target.value === null ||
+    e.target.value === ""
+  ) {
+    submitBtn.classList.remove("able");
+    submitBtn.disabled = true;
+  } else {
+    submitBtn.classList.add("able");
+    submitBtn.disabled = false;
+  }
+});
